@@ -1,118 +1,310 @@
 
 <!DOCTYPE html>
-<html>
-<style>
-table, th, td {
-  border:1px solid black;
-}
-</style>
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>prepre</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-onix-digital.css">
+    <link rel="stylesheet" href="assets/css/animated.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+<!--
+
+TemplateMo 565 Onix Digital
+
+https://templatemo.com/tm-565-onix-digital
+
+-->
+  </head>
+
 <body>
 
-<!-- Here a loader is created which 
-               loads till response comes -->
-  <div class="d-flex justify-content-center">
-    <div class="spinner-border"
-   role="status" id="loading">
-    <span class="sr-only">Loading...</span>
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
-    </div>
-    <h1>Registered Suppliers</h1>
-    <!-- table for showing data -->
-    <table id="employees"></table>
+  </div>
+  <!-- ***** Preloader End ***** -->
 
-	<h1>Registered Category1</h1>
-    <!-- table for showing data -->
-    <table id="category1"></table>
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <img src="Prepe/logo1.png">
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="service.html">Services</a></li>
+              <li class="scroll-to-section"><a href="about.html">About</a></li>
+              <li class="scroll-to-section"><a href="#portfolio">Book Session</a></li>
+              <li class="scroll-to-section"><a href="#video">Team</a></li> 
+
+              <li class="scroll-to-section"><div class="main-red-button-hover"><a href="#contact">Contact Us Now</a></div></li> 
+            </ul>        
+            <a class='menu-trigger'>
+                <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="main-banner" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-6 align-self-center">
+              <div class="owl-carousel owl-banner">
+                <div class="item header-text">
+                  <h6>Welcome to Onix Digital</h6>
+                  <h2>Build <em>your website</em> the best in <span>SEO</span>?</h2>
+                  <p><q>This is a professional looking HTML Bootstrap 5 website template brought to you by TemplateMo website.</q></p>
+                  <div class="down-buttons">
+                    <div class="main-blue-button-hover">
+                      <a href="#contact">Message Us Now</a>
+                    </div>
+                    <div class="call-button">
+                      <a href="#"><i class="fa fa-phone"></i> 010-020-0340</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="item header-text">
+                  <h6>Online Marketing</h6>
+                  <h2>Get the <em>best ideas</em> for <span>your website</span></h2>
+                  <p>You are NOT allowed to redistribute this template ZIP file on any Free CSS collection websites. Contact us for more info. Thank you.</p>
+                  <div class="down-buttons">
+                    <div class="main-blue-button-hover">
+                      <a href="#services">Our Services</a>
+                    </div>
+                    <div class="call-button">
+                      <a href="#"><i class="fa fa-phone"></i> 090-080-0760</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="item header-text">
+                  <h6>Video Tutorials</h6>
+                  <h2>Watch <em>our videos</em> for your <span>projects</span></h2>
+                  <p>Please <a rel="nofollow" href="https://www.paypal.me/templatemo" target="_blank">support us</a> a little via PayPal if this digital marketing HTML template is useful for you. Thank you.</p>
+                  <div class="down-buttons">
+                    <div class="main-blue-button-hover">
+                      <a href="#video">Watch Videos</a>
+                    </div>
+                    <div class="call-button">
+                      <a href="#"><i class="fa fa-phone"></i> 050-040-0320</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Team Start -->
+   <div class="container-fluid py-6 px-5">
+    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+        <h1 class="display-5 mb-0">Our Team Members</h1>
+        <hr class="w-25 mx-auto bg-primary">
+    </div>
+    <div class="row g-5">
+        <div class="col-lg-4">
+            <div class="team-item position-relative overflow-hidden">
+                <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
+                <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                    <h3 class="text-white">Full Name</h3>
+                    <p class="text-white text-uppercase mb-0">Designation</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="team-item position-relative overflow-hidden">
+                <img class="img-fluid w-100" src="img/team-2.jpg" alt="">
+                <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                    <h3 class="text-white">Full Name</h3>
+                    <p class="text-white text-uppercase mb-0">Designation</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="team-item position-relative overflow-hidden">
+                <img class="img-fluid w-100" src="img/team-3.jpg" alt="">
+                <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                    <h3 class="text-white">Full Name</h3>
+                    <p class="text-white text-uppercase mb-0">Designation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->
+
+    <!-- Contact Start -->
+    <div class="container-fluid bg-secondary px-0">
+      <div class="row g-0">
+          <div class="col-lg-6 py-6 px-5">
+              <h1 class="display-5 mb-4">Contact For Any Queries</h1>
+              <form>
+                  <div class="row g-3">
+                      <div class="col-6">
+                          <div class="form-floating">
+                              <input type="text" class="form-control" id="form-floating-1" placeholder="John Doe">
+                              <label for="form-floating-1">Full Name</label>
+                          </div>
+                      </div>
+                      <div class="col-6">
+                          <div class="form-floating">
+                              <input type="email" class="form-control" id="form-floating-2" placeholder="name@example.com">
+                              <label for="form-floating-2">Email address</label>
+                          </div>
+                      </div>
+                      <div class="col-12">
+                          <div class="form-floating">
+                              <input type="text" class="form-control" id="form-floating-3" placeholder="Subject">
+                              <label for="form-floating-3">Subject</label>
+                          </div>
+                      </div>
+                      <div class="col-12">
+                          <div class="form-floating">
+                              <textarea class="form-control" placeholder="Message" id="form-floating-4" style="height: 150px"></textarea>
+                              <label for="form-floating-4">Message</label>
+                            </div>
+                      </div>
+                      <div class="col-12">
+                          <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+          <div class="col-lg-6" style="min-height: 400px;">
+              <div class="position-relative h-100">
+                  <iframe class="position-relative w-100 h-100"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
+                      frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Contact End -->
+
+
+
+  <div class="footer-dec">
+    <img src="assets/images/footer-dec.png" alt="">
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="about footer-item">
+            <div class="logo">
+              <a href="#"><img src="Prepe/logo1.png" alt="Onix Digital TemplateMo"></a>
+            </div>
+            <a href="#">info@company.com</a>
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="services footer-item">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">SEO Development</a></li>
+              <li><a href="#">Business Growth</a></li>
+             
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="services footer-item">
+            <h4>Get In Touch</h4>
+            <ul>
+              <p ><i class="bi bi-geo-alt text-primary me-2"></i>123 Street, New York, USA</p>
+              <p ><i class="bi bi-envelope-open text-primary me-2"></i>info@example.com</p>
+              <p ><i class="bi bi-telephone text-primary me-2"></i>+012 345 67890</p>
+          
+            </ul>
+          </div>
+        </div>
+       
+        <div class="col-lg-12">
+         
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="container-fluid bg-dark text-secondary text-center border-top py-2 px-1" style="border-color: rgba(256, 256, 256, .1) !important;">
+
+</div>
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/animation.js"></script>
+  <script src="assets/js/imagesloaded.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <script>
+  // Acc
+    $(document).on("click", ".naccs .menu div", function() {
+      var numberIndex = $(this).index();
+
+      if (!$(this).is("active")) {
+          $(".naccs .menu div").removeClass("active");
+          $(".naccs ul li").removeClass("active");
+
+          $(this).addClass("active");
+          $(".naccs ul").find("li:eq(" + numberIndex + ")").addClass("active");
+
+          var listItemHeight = $(".naccs ul")
+            .find("li:eq(" + numberIndex + ")")
+            .innerHeight();
+          $(".naccs ul").height(listItemHeight + "px");
+        }
+    });
+  </script>
 </body>
-
-<script>
-
-function UploadData(){
-	let xhr = new XMLHttpRequest();
-xhr.open("POST", "https://ogoori.decarbonify.com/api/scope3/category/1/");
-xhr.setRequestHeader("Accept", "application/json");
-xhr.setRequestHeader("Content-Type", "application/json");
-
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4) {
-    console.log(xhr.status);
-    console.log(xhr.responseText);
-  }};
-
-let data = `{
- "date":"2022-12-15",
-  "Quantity_purchased": "3400 Kg",
-  "product_id": 2,
-  "supplier_id": 2
-}`;
-
-xhr.send(data);
-}
-//UploadData();
-
-
-
-
-
-  // api url
-const api_url =
-	"https://ogoori.decarbonify.com/api/scope3/category/1/?format=json";
-
-// Defining async function
-async function getapi(url) {
-	
-	// Storing response
-	const response = await fetch(url);
-	
-	// Storing data in form of JSON
-	var data = await response.json();
-	console.log(data);
-	
-	if (response) {
-		
-		hideloader();
-	}
-	show(data);
-	show_category1(data);
-	
-}
-// Calling that async function
-getapi(api_url);
-
-// Function to hide the loader
-function hideloader() {
-	document.getElementById('loading').style.display = 'none';
-}
-// Function to define innerHTML for HTML table
-function show(data) {
-	let tab =
-		'<tr> <th>supplier_id</th> <th>supplier_name</th> <th>email</th> 	<th>supplying_category</th> 	</tr>';
-	
-	// Loop to access all rows
-	for (let i =0; i<data.length;i++) {
-		
-		tab += '<tr> <td>'+data[i].supplier_id+' </td> <td>'+data[i].supplier_name+'</td> <td>'+data[i].email+'</td> <td>'+data[i].supplying_category+'</td>		</tr>';
-	}
-	// Setting innerHTML as tab variable
-	document.getElementById("employees").innerHTML = tab;
-}
-// Function to define innerHTML for HTML table
-function show_category1(data) {
-	let tab =
-		'<tr> <th>date</th> <th>Quantity_purchased</th> <th>supplier_id</th>  <th>product_id</th> 	</tr>';
-	
-	// Loop to access all rows
-	for (let i =0; i<data.length;i++) {
-		
-		tab += '<tr> <td>'+data[i].date+' </td> <td>'+data[i].Quantity_purchased+'</td>	 <td>'+data[i].supplier_id+'</td> <td>'+data[i].product_id+'</td></tr>';
-	}
-	// Setting innerHTML as tab variable
-	document.getElementById("category1").innerHTML = tab;
-}
-
-
-
-</script>
-
-
 </html>
