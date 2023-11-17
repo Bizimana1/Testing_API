@@ -1,0 +1,545 @@
+<html>
+   
+    <head>
+        <title>Income Calculator</title>
+
+
+        <style>
+            * {
+    box-sizing: border-box;
+    outline:none;
+}
+html, body {
+  margin:0;
+  padding:0;
+  top:0;
+  font-family: 'Montserrat', sans-serif;
+}
+h1 {
+  color:#fff;
+  padding: 10px;
+  background: rgba(0,0,0,0.65);
+  display:inline-block;
+}
+#h1Wrap {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  position:relative;
+  z-index: 2;
+}
+h2 {
+  display:inline-block;
+  margin:0;
+}
+h3 {
+  text-align:center;
+  margin:0 0 5px 0;
+}
+
+#header {
+  height:30%;
+  width:100%;
+  background:#ccc;
+  position:absolute;
+  margin-top:0;
+  display: table;
+}
+#content {
+  height:70%;
+  width:100%;
+  top:30%;
+  position:absolute;
+  overflow:auto;
+  display:inline-block;
+}
+
+#container {
+  display: block;
+  margin:0 auto;
+  padding:10px;
+  width:50%;
+}
+@media (max-width:1366px) {
+  #container {
+    width:75%;
+  }
+}
+@media (max-width:768px) {
+  #container {
+    width:90%;
+  }
+}
+@media (max-width:480px) {
+  #container {
+    width:100%;
+    padding:0;
+  }
+}
+.card {
+  padding:10px;
+  margin: 1.5em;
+  background: #fff;
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 2px 5px rgba(0, 0, 0, 0.26);
+    border: 1px solid #eee;
+}
+input {
+  display:block;
+  margin:5px 0px;
+  width:100%;
+}
+
+a.btn,
+input[name=reset]
+{
+  display:inline;
+  width:auto;
+}
+
+input[name=income]
+{
+  padding:10px 5px;
+}
+
+.btn {
+  background: #428bca;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 15px;
+  text-decoration: none;
+  text-align: center;
+  min-width: 60px;
+  position: relative;
+  transition: color .1s ease;
+}
+.btn:hover {
+  background: #357ebd;
+  cursor:pointer;
+}
+.btn.btnBig {
+  font-size: 18px;
+  padding: 5px 20px;
+  min-width: 100px;
+  border:none;
+}
+.btnClose {
+  color: #aaa;
+  font-size: 30px;
+  text-decoration: none;
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+.btnClose:hover {
+  color: #919191;
+}
+
+/************************/
+/******** Modal *********/
+/************************/
+.modal:before {
+  content: "";
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+}
+.modal:target:before {
+  display: block;
+}
+.modal:target .modalDialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  top: 20%;
+}
+.modalDialog {
+  background: #fff;
+  margin-left: -200px;
+  position: fixed;
+  left: 50%;
+  top: -100%;
+  z-index: 11;
+  width: 360px;
+  -webkit-transform: translate(0, -500%);
+  -ms-transform: translate(0, -500%);
+  transform: translate(0, -500%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.modalBody {
+  padding: 20px;
+}
+
+.modalFooter {
+  padding: 15px 5px;
+  border-top: #eee solid 1px;
+}
+
+/****************************/
+/***** Header Slideshow *****/
+/****************************/
+.slideshow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slideshow-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: no-repeat 50% 50%;
+  background-size: cover;
+  -webkit-animation-name: kenburns;
+          animation-name: kenburns;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 16s;
+          animation-duration: 16s;
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.slideshow-image:nth-child(1) {
+  -webkit-animation-name: img1;
+          animation-name: img1;
+  z-index: 3;
+  background-image:url('https://bloximages.chicago2.vip.townnews.com/nogalesinternational.com/content/tncms/assets/v3/editorial/4/74/474329b8-dc29-11e6-b8cf-93646270ec74/587d2b658ac68.image.jpg');
+}
+.slideshow-image:nth-child(2) {
+  -webkit-animation-name: img2;
+          animation-name: img2;
+  z-index: 2;
+  background-image:url('https://yorkshirepowerhouse.com/public/2017/09/Business-Sale-962x365.jpg');
+}
+.slideshow-image:nth-child(3) {
+  -webkit-animation-name: img3;
+          animation-name: img3;
+  z-index: 1;
+  background-image:url('http://wp.meridiantaxandaccounting.com/wp-content/uploads/2014/08/tax_banner1.jpg');
+}
+.slideshow-image:nth-child(4) {
+  -webkit-animation-name: img4;
+          animation-name: img4;
+  z-index: 0;
+  background-image:url('https://www.stpaul.gov/sites/default/files/Media%20Root/Financial%20Services/20140910-OFS_Banner.jpg');
+}
+
+@-webkit-keyframes img1 {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  2% {
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  27% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  98% {
+    opacity: 0;
+    -webkit-transform: scale(1.2117647059);
+            transform: scale(1.2117647059);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes img1 {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  2% {
+    opacity: 1;
+  }
+  24% {
+    opacity: 1;
+  }
+  27% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  98% {
+    opacity: 0;
+    -webkit-transform: scale(1.2117647059);
+            transform: scale(1.2117647059);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes img2 {
+  24% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  27% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 1;
+  }
+  52% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+@keyframes img2 {
+  24% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  27% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 1;
+  }
+  52% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+@-webkit-keyframes img3 {
+  48% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  52% {
+    opacity: 1;
+  }
+  73% {
+    opacity: 1;
+  }
+  77% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+@keyframes img3 {
+  48% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  52% {
+    opacity: 1;
+  }
+  73% {
+    opacity: 1;
+  }
+  77% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+@-webkit-keyframes img4 {
+  73% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  77% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes kenburns-4 {
+  73% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  77% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+        </style>
+    </head>
+
+    <body>
+
+<div id="header">
+    <div class="slideshow">
+      <div class="slideshow-image"></div>
+      <div class="slideshow-image"></div>
+      <div class="slideshow-image"></div>
+      <div class="slideshow-image"></div>
+    </div>
+    <div id="h1Wrap">
+      <h1>Income  Calculator</h1>
+    </div>
+  </div>
+  <div id="content">
+    <div id="container">
+      <div class="card">
+        <h2>Income</h2>
+        <hr>
+        <p>Formula to Calculate Our Income (2 shares)</p>
+        <p>Share 1 : 50,000 Rwf <span style="color: red;">(33.33 %)</span></p>
+        <p>Share 2 : 100,000 Rwf <span style="color: red;">(66.66 %)</span></p>
+        <p>Total Capital : 150,000 Rwf <span style="color: red;">(100 %)</span></p>
+        
+      </div>
+      <!-- <div class="card">
+        <p>An income tax is a tax that governments impose on financial income generated by all entities within their jurisdiction. By law, businesses and individuals must file an income tax return every year to determine whether they owe any taxes or are eligible for a tax refund. Income tax is a key source of funds that the government uses to fund its activities and serve the public.</p>
+        <p>Most individuals do not pay tax on all of their income. Rather, the IRS offers a series of deductions, including mortgage interest, a portion of medical and dental bills, education expenses and several others, which taxpayers subtract from their gross income to determine their taxable income.</p>
+      </div> -->
+      <div class="card">
+        <h2>Calculate your Income</h2>
+        <hr>
+        <!-- Income Tax Form -->
+        <form name="incomeTaxForm" autocomplete="off">
+          <input id="income" type="float" step="0.01" name="income" min="0" placeholder="Income">
+           <a href="#modal" class="btn btnBig" onclick="calcIncomeTax()">Enter</a>
+          <input type="reset" name="reset" class="btn btnBig">
+        </form>
+        <!-- /Income Tax Form -->
+      </div>
+    </div>
+    
+    <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modalDialog">
+      <div class="modalBody">
+         <a href="#" class="btnClose" aria-hidden="true">×</a>
+         <h4>  <p>Share 1 : 50,000 Rwf <span style="color: red;">(33.33 %)</span></p></h4>
+         <p>33.33% Of <span id="total_income"></span> :  <span id="total_share1" style="color: rgb(17, 0, 255);"></span></p>
+
+         <p> <strong> Baptiste' share</strong> = <span id="bapt1"> </span></p>
+         <p> <strong> Salomon' share </strong> = <span id="salomon1"> </span></p>
+         <p> <strong> Ange' share    </strong> = <span id="ange"> </span></p>
+         <hr> 
+         <h4>  <p>Share 2 : 100,000 Rwf <span style="color: red">(66.66 %)</span></p></h4>
+         <p>66.66% Of <span id="total_incom"></span> :  <span id="total_share2" style="color: rgb(17, 0, 255);"></span></p>
+         <p> <strong> Baptiste' share</strong> = <span id="bapt2"> </span></p>
+         <p> <strong> Salomon' share </strong> = <span id="salomon2"> </span></p>
+         <hr> 
+        <p>Thank you !!!</p>
+      </div>
+      <div class="modalFooter">
+        <a href="#" class="btn">Close</a>
+      </div>
+    </div>
+  </div>
+  <!-- /Modal -->
+    
+    
+  </div>
+    </body>
+
+    <script>
+        $(window).resize(function () {
+  var windowHeight = $( window ).height();
+  
+  var newHeaderHeight = windowHeight * 0.3;
+  $('#header').height(newHeaderHeight);
+  
+  var newContentHeight = windowHeight * 0.7;
+  var newContentHeightMargin = (windowHeight * 0.3);
+  $('#content').height(newContentHeight);
+});
+
+
+function calcIncomeTax() {
+  var preFormattedIncome = document.getElementById("income").value;
+  var income = preFormattedIncome.replace(/[^\d.-]/g, '');
+
+  var share1= (income/100)*33.33;
+  var share2= (income/100)*66.66; 
+
+  document.getElementById("total_income").innerHTML = income;
+  document.getElementById("total_incom").innerHTML = income;
+
+  document.getElementById("total_share1").innerHTML = share1.toFixed(2);
+  document.getElementById("total_share2").innerHTML =share2.toFixed(2);
+  
+  
+  var amount_share1=share1/3;
+  var amount_share2=share2/2;
+  document.getElementById("bapt1").innerHTML = amount_share1.toFixed(2);
+  document.getElementById("salomon1").innerHTML =amount_share1.toFixed(2);
+  document.getElementById("ange").innerHTML =amount_share1.toFixed(2);
+
+  document.getElementById("bapt2").innerHTML = amount_share2.toFixed(2);
+  document.getElementById("salomon2").innerHTML =amount_share2.toFixed(2);
+
+}
+    </script>
+</html>
